@@ -1,0 +1,71 @@
+<style>
+
+    div{
+        border:1px solid rgb(50, 255, 125);
+        padding: 10px;
+        font-size: 150px;
+    }
+</style>
+
+<body style="background-color: black; color: aliceblue;">
+    
+TIMER CLOCK
+
+<div style="display:flex; justify-content: center; padding:10px; border:none">
+
+
+        <div id="hours">H
+<!-- HOURS -->
+        </div>
+
+
+        <div id="minutes">M
+<!-- MINUTES -->
+        </div>
+
+        <div id="seconds">S
+<!-- SECOBNDS -->
+
+        </div>
+
+</div>
+
+
+<script>
+      
+        const hours = document.getElementById("hours");
+        const minutes = document.getElementById("minutes");
+        const seconds = document.getElementById("seconds");
+        
+        
+        let h=0, m=0,s=0;
+        function updateSeconds(){
+
+            if(s==60)
+            {
+                m++;
+                s=0;
+            }else s++;
+
+            if(m==60)
+            {
+                h++;
+                m=0;
+            }
+
+            if(h==12)
+            h=0;
+
+            hours.innerHTML = h;
+            minutes.innerHTML = m;
+            seconds.innerHTML = s;
+        }
+        
+
+       setInterval( updateSeconds ,1000);
+
+</script>
+
+
+
+</body>

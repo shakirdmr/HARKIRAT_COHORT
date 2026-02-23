@@ -1,0 +1,27 @@
+{
+  "name": "javascript-learning",
+  "version": "1.0.0",
+  "description": "A comprehensive repository documenting my progress through JavaScript fundamentals and core concepts",
+  "main": "wee-1/start.js",
+  "scripts": {
+    "start": "node wee-1/start.js",
+    "array": "node wee-1/array.js",
+    "callbacks": "node wee-1/callbacks.js",
+    "callbacks-advanced": "node wee-1/callbacksAdvanced.js",
+    "functions": "node wee-1/functions.js",
+    "timeout": "node wee-1/setTimeout.js",
+    "dev": "nodemon wee-1/start.js"
+  },
+  "keywords": [
+    "javascript",
+    "learning",
+    "fundamentals",
+    "callbacks",
+    "async"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
