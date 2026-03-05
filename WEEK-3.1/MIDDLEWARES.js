@@ -1,75 +1,38 @@
 import express from "express"
+import zod from "zod"
 import cors from "cors"
-import { stat } from "node:fs"
+const app = express();
+
+app.use( express.json())
+// app.use(GLOBAL_INPUT_VALIDATION) --> wrong as all routes will expect only square data
 
 
-const app = express()
+app.use(cors())
+
+const squareSchema = zod.number();
 
 
+app.post("/square", GLOBAL_INPUT_VALIDATION, callback)
 
-// app.use( cors() )
-app.use( express.json() ) //GLOBAL MIDDLEWARES
+function callback(req, res, next){
 
-app.use( checkUsername)  //GLOBAL MIDDLEWARE WILL:: ALWAYS CHECK FIRST USRNAME 
+    let  {squareNumber} = req.body;
 
-function checkUsername(req, res, next){
+    console.log("REQUESTED ", squareNumber)
 
-    const uname = req.headers.uname;
-
-    if(uname != "shakir")
-        return res.json( {status:false, msg:"wrong uname"} )
-    // else next();
-
-    next();
+    return res.status(200).json({squareNumber: squareNumber*squareNumber})
 }
 
-function checkNumber(req, res, nextttttt)
-{
+function GLOBAL_INPUT_VALIDATION(req, res, next){
 
-    const n = req.query.n;
+ let data = req.body.squareNumber;
+ const response = squareSchema.safeParse(data);
 
-    if(n == undefined)
-        return res.json( {status:false, msg:"numb not given"} )
+ if(response.success)
+    return next();
+else
+    return res.json({message:"error"})
 
-    if(n>9)
-        return res.json( {status:false, msg:"numb give < 10"} )
-
-    nextttttt();
 }
 
-function giveSquare(req, res, next){
-
-    const ROOT = req.query.n;    
-
-
-    console.log(typeof(req.body))
-
-
-    return  res.status(200).json( {status:true, body:ROOT*ROOT})
-}
-
-
-
-
-app.get("/", checkNumber,  giveSquare);
-app.get(  "/sayHello",  (req, res)=>res.send("HII")  );
-
-app.post("/serverTime", (req, res)=>{
-
-    console.log("\n\n REQUEST REACHED ")
-    
-    const clientDate = new Date( req.body.clientDate )
-    
-
-    let dt = new Date()
-
-    const timeOnServer = new Date()
-
-    res.json( {status: true, timeToHitServer: dt-clientDate , timeOnServer} );
-
-});
-
-
-
-app.listen(5001, ()=> console.log("SERVER UP/ PORT:5001"));
-
+app.listen(5001, ()=>console.log("SEARVER UP 5001"))

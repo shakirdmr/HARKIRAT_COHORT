@@ -1,0 +1,34 @@
+<body>
+    HELLO SHAKIR <br>
+    <div>
+        <p id="date"></p>
+    </div>
+</body>
+
+<script>
+
+const dateBox = document.getElementById("date");
+dateBox.innerHTML = new Date();
+
+async function run(){
+
+    const response = await fetch("http://localhost:5001/square",{
+        method:"POST",
+        body: JSON.stringify({squareNumber:4}),
+        headers:{
+            "Content-Type":"application/json",
+            "uname":"shakir"
+        }
+    });
+
+    const data = await response.json();
+
+console.log(data)
+
+    dateBox.innerHTML = data.squareNumber ?? "NULL";
+}
+
+setTimeout(run, 2000);
+
+
+</script>
