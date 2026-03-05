@@ -8,6 +8,8 @@ console.log(squares); // [1,2,3] (original untouched)
 console.log(x);       // [1,4,9] -->new ARRAY
 
 
+
+
 // ✅ If you want to MODIFY the same array
 // Then use forEach() instead
 
