@@ -1,5 +1,6 @@
 import express from "express"
 import cors from "cors"
+import { stat } from "node:fs"
 
 
 const app = express()
@@ -8,6 +9,7 @@ const app = express()
 
 // app.use( cors() )
 app.use( express.json() ) //GLOBAL MIDDLEWARES
+
 app.use( checkUsername)  //GLOBAL MIDDLEWARE WILL:: ALWAYS CHECK FIRST USRNAME 
 
 function checkUsername(req, res, next){
@@ -25,6 +27,9 @@ function checkNumber(req, res, nextttttt)
 {
 
     const n = req.query.n;
+
+    if(n == undefined)
+        return res.json( {status:false, msg:"numb not given"} )
 
     if(n>9)
         return res.json( {status:false, msg:"numb give < 10"} )
@@ -48,15 +53,13 @@ function giveSquare(req, res, next){
 
 app.get("/", checkNumber,  giveSquare);
 app.get(  "/sayHello",  (req, res)=>res.send("HII")  );
+
 app.post("/serverTime", (req, res)=>{
 
-    console.log("\n\n REQUEST REACHED")
+    console.log("\n\n REQUEST REACHED ")
     
-    let clientDate = req.body.clientDate;
+    const clientDate = new Date( req.body.clientDate )
     
-    clientDate = new Date(clientDate)
-
-    console.log("\n date: ", clientDate)
 
     let dt = new Date()
 
@@ -67,4 +70,6 @@ app.post("/serverTime", (req, res)=>{
 });
 
 
+
 app.listen(5001, ()=> console.log("SERVER UP/ PORT:5001"));
+

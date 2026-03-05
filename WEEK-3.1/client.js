@@ -1,11 +1,9 @@
 let currentDate = new Date()
 
-async function hitServer(){
-
-    try {
-        
+async function hitServer(){   
     
-    let ret = await fetch("http://localhost:5001/serverTime", {
+    let ret = await fetch("http://localhost:5001/serverTime",
+         {
         method:"POST",
         body:   JSON.stringify(
                 {
@@ -13,8 +11,10 @@ async function hitServer(){
                 }
                 ),
         headers:   { "Content-Type": "application/json", uname:"shakir" }     
-    });
+         }
+    )
 
+    
 
     let data = await ret.json(); // parse the response body
 
@@ -33,10 +33,6 @@ async function hitServer(){
     const fullTime = (timeToHitServer+timeFromServer)/1000;
     console.log("\n FULL ROUTE TIME: ",fullTime )
 
-    } catch (error) {
-      
-        console.log("HIT ERR:", error.message, error.name)
-    }
 
 }
 
