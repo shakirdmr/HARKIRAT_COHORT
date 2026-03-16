@@ -1,0 +1,44 @@
+<body>
+    
+<input type="text" id="toDO" placeholder="todo new"/>
+<br >
+<button onclick="addTodoDOM()">ADD TODO </button>
+
+
+
+<hr >
+
+<div>
+    <p id="todosTREE"></p>
+</div>
+
+
+
+<script>
+
+
+   let toDO_DOM_OBJ = document.getElementById("toDO")
+    let todosTREE = document.getElementById("todosTREE")
+
+function addTodoDOM(){
+
+    let toDO = toDO_DOM_OBJ.value
+
+    console.log(todosTREE)
+
+    
+    todosTREE.innerHTML = todosTREE.innerHTML + "<br>" + toDO
+    toDO_DOM_OBJ.value = ""
+
+
+
+    console.log(toDO)
+
+}
+
+
+</script>
+
+
+
+</body>

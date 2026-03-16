@@ -1,0 +1,55 @@
+<!-- // SELECT → CREATE → MODIFY → LISTEN -->
+
+<body>
+
+
+
+
+        <input id="name" placeholder="add new TODO" >
+        <button onclick="addToDOM()">ADD</button>
+   
+
+    <div id="divv">
+
+    </div>
+
+    <script>
+
+        let n = document.getElementById("name")
+        let toShow = document.getElementById("divv")
+
+        function addToDOM(){
+
+           let newDiv = document.createElement("div") 
+           let newP = document.createElement("p")
+           let newBtn = document.createElement("button")
+
+           console.log(n.getHTML)
+
+           newP.innerText = n.value 
+           newBtn.innerHTML = "MARK DONE "
+           
+           console.log(newDiv)
+
+
+           newBtn.addEventListener("click", function(){
+                newDiv.remove()
+            })
+
+           newDiv.appendChild(newP)
+           newDiv.appendChild(newBtn)
+
+           
+
+           toShow.appendChild(newDiv)
+
+           n.value = ""
+
+
+        }
+         
+        
+    </script>
+
+    
+</body>
