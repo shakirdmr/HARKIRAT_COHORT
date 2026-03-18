@@ -1,0 +1,27 @@
+<body>
+
+<button id="counetr" onclick=incr() >CLICK No. 1</button>
+
+    <script>
+
+        let counetr = document.getElementById("counetr");
+
+
+        function incr(){
+
+            
+        let str = counetr.innerHTML
+
+        console.log(str)
+
+         let num = parseInt( str.split(" ")[2] )
+         num +=1
+
+         counetr.innerHTML = "CLICK No. "+num
+        }
+
+
+    </script>
+
+
+</body>

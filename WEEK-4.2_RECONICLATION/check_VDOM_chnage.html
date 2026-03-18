@@ -1,0 +1,45 @@
+<script>
+const oldUI = [
+  { id: 1, name: "Navbar" },
+  { id: 2, name: "Counter:0" },
+  { id: 3, name: "Footer" }
+];
+
+const newUI = [
+  { id: 1, name: "Navbar" },
+  { id: 2, name: "Counter:1" },
+  { id: 4, name: "Profile" },
+  { id: 3, name: "Footer" }
+];
+
+function reconcile(oldTree, newTree) {
+
+  const oldMap = {};
+
+  // store old elements by id
+  for (let item of oldTree) {
+    oldMap[item.id] = item;
+  }
+
+  for (let item of newTree) {
+
+    if (!oldMap[item.id]) {
+      console.log("Add element:", item.name);
+    }
+
+    else if (oldMap[item.id].name !== item.name) {
+      console.log("Update element:", item.name);
+    }
+
+    else {
+      console.log("Same:", item.name);
+    }
+
+  }
+
+}
+
+reconcile(oldUI, newUI);
+
+
+</script>

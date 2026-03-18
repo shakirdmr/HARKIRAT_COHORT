@@ -1,0 +1,22 @@
+<script>
+    const oldUI = ["Navbar", "Counter:0", "Footer"];
+const newUI = ["Navbar", "Counter:1", "Footer"];
+
+function reconcile(oldTree, newTree) {
+
+  for (let i = 0; i < oldTree.length; i++) {
+
+    if (oldTree[i] !== newTree[i]) {
+
+      console.log("Update element:", newTree[i]);
+
+      oldTree[i] = newTree[i];
+
+    }
+
+  }
+
+}
+
+reconcile(oldUI, newUI);
+</script>

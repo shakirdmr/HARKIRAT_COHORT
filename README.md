@@ -1,81 +1,62 @@
-# JavaScript Learning Journey
+# JavaScript Learning Journey — Harkirat Cohort
 
-A comprehensive repository documenting my progress through JavaScript fundamentals and core concepts.
+A full-stack JavaScript learning path, from HTML basics all the way to React and databases. Each folder is one week of the cohort.
 
-## 📁 Project Structure
+## Learning Path
+
+| Folder | Topic | What's inside |
+|--------|-------|---------------|
+| [week-0](./week-0/) | HTML & CSS | Webpage structure and styling basics |
+| [WEEK-1](./WEEK-1/) | JS Fundamentals | Variables, arrays, functions, callbacks, setTimeout |
+| [WEEK-1-ASYN-JS](./WEEK-1-ASYN-JS/) | Async JavaScript | Callbacks → Promises → Async/Await, file I/O |
+| [WEEK-1-OOP-JS](./WEEK-1-OOP-JS/) | OOP in JS | Classes, constructors, methods, `new` keyword |
+| [WEEK-2.2-NODE.js](./WEEK-2.2-NODE.js/) | Node.js | Running JS on a server, built-in `http` module |
+| [WEEK-2.5-EXPRESS](./WEEK-2.5-EXPRESS/) | Express.js | Routing, middleware, file serving |
+| [WEEK-2.6-MAP&FILTER](./WEEK-2.6-MAP&FILTER/) | Array Methods | `.map()`, `.filter()`, `.forEach()`, custom implementations |
+| [WEEK-3.1](./WEEK-3.1/) | Middleware & Validation | Zod schema validation, CORS, global error handling |
+| [WEEK-3.2(fetch,AUTH,MONGO)](./WEEK-3.2(fetch,AUTH,MONGO)/) | Auth & Database | Fetch API, JWT authentication, MongoDB + Mongoose |
+| [WEEK-4.1_DOM](./WEEK-4.1_DOM/) | DOM Manipulation | Selecting elements, changing styles, events, setInterval |
+| [WEEK-4.2_REACTjs](./WEEK-4.2_REACTjs/) | React Basics | Components, JSX, useState hook, Vite setup |
+| [WEEK-4.2_RECONICLATION](./WEEK-4.2_RECONICLATION/) | Virtual DOM | Reconciliation, diffing algorithm, why React is fast |
+| [WEEK-5.1_REACT_DEEP_DIVE](./WEEK-5.1_REACT_DEEP_DIVE/) | React Deep Dive | Why React exists, one-way data flow, state vs DOM |
+
+## The Big Picture
+
+This repo follows a natural progression:
 
 ```
-HARKIRAT/
-├── week-0/                 # HTML & CSS Basics
-│   ├── index.html         # HTML structure
-│   └── index.css          # CSS styling
-├── wee-1/                 # JavaScript Fundamentals
-│   ├── array.js          # Array operations and methods
-│   ├── callbacks.js       # Callback functions basics
-│   ├── callBacksAdvanced.js    # Advanced callback patterns
-│   ├── functions.js       # Function declarations and expressions
-│   ├── SetTimeout.js      # Asynchronous timing with setTimeout
-│   └── start.js           # Entry point / getting started
-└── README.md              # This file
+HTML/CSS  →  JS Basics  →  Async JS  →  Node/Express  →  Auth + DB  →  React
+(visuals)    (logic)       (timing)     (backend)         (full-stack)  (frontend)
 ```
 
-## 🎯 Topics Covered
+Each week builds on the previous one. By the end, you have all the pieces needed to build a full-stack web app.
 
-### Week 0: Web Fundamentals
-- HTML structure and semantics
-- CSS styling and layout
+## Running backend examples
 
-### Week 1: JavaScript Basics
-- **Functions**: Declaration, expression, parameters, return values
-- **Arrays**: Creation, manipulation, iteration methods
-- **Callbacks**: Understanding asynchronous patterns
-- **Async Fundamentals**: setTimeout, event loops, non-blocking execution
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js installed (v14 or higher recommended)
-
-### Running Scripts
-
-Navigate to the project directory and run any script:
+Most weeks use Node.js. To run any backend file:
 
 ```bash
-cd wee-1
-node start.js
-node array.js
-node callbacks.js
-node SetTimeout.js
+node WEEK-X/filename.js
+# or with auto-reload:
+npx nodemon WEEK-X/filename.js
 ```
 
-## 📝 Notes
+## Running the React app
 
-- Each file focuses on a specific JavaScript concept
-- Examples build progressively from basic to advanced
-- Use `nodemon` for auto-reloading during development:
-  ```bash
-  npm install -g nodemon
-  nodemon SetTimeout.js
-  ```
+```bash
+cd WEEK-4.2_REACTjs
+npm install
+npm run dev
+```
 
-## 🔗 Concepts at a Glance
+## Dependencies (root)
 
-| Topic | File | Key Learning |
-|-------|------|---------------|
-| Arrays | `array.js` | Array methods, iteration |
-| Functions | `functions.js` | Scope, parameters, returns |
-| Callbacks | `callbacks.js`, `callBacksAdvanced.js` | Asynchronous patterns, timing |
-| Async | `SetTimeout.js` | Non-blocking execution, timers |
+The root `package.json` includes shared backend dependencies:
 
-## 📚 Resources
-
-- [MDN JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)
-- [JavaScript.info](https://javascript.info/)
-
-## 📄 License
-
-This is a personal learning project.
-
----
-
-**Last Updated**: February 2026
+- **express** — web server framework
+- **jsonwebtoken** — JWT creation and verification
+- **mongoose** — MongoDB object modeling
+- **zod** — schema validation
+- **dotenv** — loading environment variables
+- **cors** — Cross-Origin Resource Sharing middleware
+- **nodemon** — auto-restart server on file changes
